@@ -37,6 +37,7 @@ hash('anotherpass',function(err,salt,hash){
     users.kate.hash = hash;
 });
 
+    // Try to auth the user with password
 function authenticate(name, pass, fn) {
    if (!module.parent) console.log('authenticating %s:%s', name, pass);
    var user = users[name];
@@ -48,6 +49,7 @@ function authenticate(name, pass, fn) {
    });
 }
 
+    // Restrict a section of the app by session
 function restrict(req, res, next) {
    if (req.session.user) {
       next();
@@ -66,16 +68,19 @@ app.get('/index',restrict,function(req,res){
     res.render('index');
 });
 
+    // Get rid of the session and redirect to /
 app.get('/logout', function(req, res){
   req.session.destroy(function(){
     res.redirect('/');
   });
 });
 
+    // Login page
 app.get('/login', function(req, res){
   res.render('login');
 });
 
+    // Post from the form on the login page.
 app.post('/login', function(req, res){
   authenticate(req.body.username, req.body.password, function(err, user){
     if (user) {
@@ -90,7 +95,6 @@ app.post('/login', function(req, res){
     }
   });
 });
-
 
     // Start the app on 3000
 app.listen(3000);
