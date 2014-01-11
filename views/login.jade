@@ -1,0 +1,16 @@
+
+extends layout
+
+block content
+    h1 Login
+    h4 Try hitting /index
+    h4 Then try logging in as ryan // password
+    #container.col-sm-5
+        form(method="POST" action="/login" role="form" class="form-horizontal")
+            div.form-group
+                label Username:
+                input(type="text" class="form-control" name="username" placeholder="Username")
+            div.form-group
+                label Password:
+                input(type="password" class="form-control" name="password" placeholder="Password")
+            input(type="submit" class="btn btn-success" value="Login")
