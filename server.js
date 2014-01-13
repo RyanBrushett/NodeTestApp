@@ -21,20 +21,14 @@ app.set('view engine','jade');
 
     // Dead simple awful 'DB' for testing
 var users = {
-    ryan: { name: 'ryan' },
-    kate: { name: 'kate' }
-}
+    ryan: { name: 'ryan' }
+};
 
     // Hashing, salting their password
 hash('password',function(err,salt,hash){
     if (err) throw err;
     users.ryan.salt = salt;
     users.ryan.hash = hash;
-});
-hash('anotherpass',function(err,salt,hash){
-    if (err) throw err;
-    users.kate.salt = salt;
-    users.kate.hash = hash;
 });
 
     // Try to auth the user with password
