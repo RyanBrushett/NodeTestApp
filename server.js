@@ -19,7 +19,7 @@ app.set('views',__dirname + '/views');
     // Jade is easy.
 app.set('view engine','jade');
 
-    // Simple DB for testing
+    // Dead simple awful 'DB' for testing
 var users = {
     ryan: { name: 'ryan' },
     kate: { name: 'kate' }
