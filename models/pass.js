@@ -1,3 +1,5 @@
+    // Lifted this from the express samples
+    // Pretty basic hash/salt function and works like a charm
 var crypto = require('crypto');
 var len = 128;
 var iterations = 12000;

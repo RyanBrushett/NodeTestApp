@@ -67,8 +67,15 @@ app.get('/', function(req,res){
 app.get('/index',restrict,function(req,res){
     res.render('index');
 });
+    // Render an About page
+app.get('/about',restrict,function(req,res){
+    res.render('about');
+});
+app.get('/links',restrict,function(req,res){
+    res.render('links');
+});
 
-    // Get rid of the session and redirect to /
+// Get rid of the session and redirect to /
 app.get('/logout', function(req, res){
   req.session.destroy(function(){
     res.redirect('/');
