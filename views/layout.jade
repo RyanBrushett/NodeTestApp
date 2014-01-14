@@ -1,8 +1,11 @@
 doctype html
 html
+  // Note that two slashes indicates an HTML comment
+  //- Two slashes with a dash is a Jade comment and will not make it to the HTML
   include header
   body
     include navbar
+    // These containers define the layout
     #container.col-sm-2.text-center
       h3 This is a sidebar
       p I'm on the side

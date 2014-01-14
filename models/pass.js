@@ -4,6 +4,8 @@ var crypto = require('crypto');
 var len = 128;
 var iterations = 12000;
 
+    // If the function takes three arguments, it'll check the has and salt.
+    // If the function gets two arguments, it'll generate a salt and hash.
 exports.hash = function (pwd, salt, fn) {
   if (3 == arguments.length) {
     crypto.pbkdf2(pwd, salt, iterations, len, function(err, hash){
